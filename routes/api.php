@@ -24,5 +24,6 @@ Route::prefix('v1')->group(function () {
     Route::post('create-customer', [CustomerController::class, 'createCustomer']);
     Route::get('get-all-customers', [CustomerController::class, 'getAllCustomers']);
     Route::post('update-customer/{id}', [CustomerController::class, 'updateCustomer']);
+    Route::post('delete-customer/{id}', [CustomerController::class, 'deleteCustomer']);
 
 });

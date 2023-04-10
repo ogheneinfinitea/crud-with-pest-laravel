@@ -100,4 +100,27 @@ class CustomerController extends Controller
         ]);
     }
 
+    public function  deleteCustomer($id) {
+        $customer = Customer::find($id);
+
+        if($customer == null) {
+            return response()->json([
+                'message' => 'Customer not found'
+            ], 404);
+        }
+
+        try {
+            $customer->delete();
+        } catch(\Exception $e) {
+            return response()->json([
+                'message' => 'Delete error',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+
+        return response()->json([
+            'message' => 'Customer deleted successfully'
+        ]);
+    }
+
 }
