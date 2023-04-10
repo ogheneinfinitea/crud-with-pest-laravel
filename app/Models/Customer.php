@@ -9,6 +9,7 @@ class Customer extends Model
 {
     use HasFactory;
 
+    protected $table = 'customer';
     protected $fillable = [
         'full_name',
         'phone_number',
