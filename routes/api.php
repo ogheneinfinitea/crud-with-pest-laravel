@@ -23,5 +23,6 @@ Route::prefix('v1')->group(function () {
     Route::get('test', [CustomerController::class, 'test']);
     Route::post('create-customer', [CustomerController::class, 'createCustomer']);
     Route::get('get-all-customers', [CustomerController::class, 'getAllCustomers']);
+    Route::post('update-customer/{id}', [CustomerController::class, 'updateCustomer']);
 
 });
