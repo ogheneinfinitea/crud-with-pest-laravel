@@ -26,13 +26,16 @@ class CustomerController extends Controller
                 $customer->save();
 
                 return response()->json([
-                    'message' => 'Customer created successfully'
+
+                    'message' => 'Customer created successfully',
+                    'id'=> $customer->id
                 ]);
             } else {
                 return response()->json([
                     'message' => 'Please fill all the fields'
                 ], 400);
             }
+
 
 
 
@@ -123,4 +126,17 @@ class CustomerController extends Controller
         ]);
     }
 
+    public  function getCustomer($id) {
+        $customer = Customer::find($id);
+
+        if($customer == null) {
+            return response()->json([
+                'message' => 'Customer not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'customer' => $customer
+        ]);
+    }
 }
