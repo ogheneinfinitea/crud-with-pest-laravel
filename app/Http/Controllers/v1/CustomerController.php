@@ -138,5 +138,9 @@ class CustomerController extends Controller
         return response()->json([
             'customer' => $customer
         ]);
+
+        return response()->json([
+            'customer' => $customer
+        ]);
     }
 }
